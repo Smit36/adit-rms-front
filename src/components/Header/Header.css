@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #008000;
+    color: white;
+    letter-spacing: 1px;
+    padding: 0 25px;
+    height: 80px;
+}
+
+.header-link {
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 480%;
+    transition: 0.2s;
+}
+
+.header-link.active {
+    background-color: #138d13;
+}
+
+.header-link:hover {
+    cursor: pointer;
+    background-color: #138d13;
+}
