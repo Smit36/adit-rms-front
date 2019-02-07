@@ -1,0 +1,37 @@
+.edit-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.form-container {
+    margin-top: 70px;
+    width: 70%;
+    margin: 70px 35% 0 0;
+}
+
+.form-control {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    margin-top: 10px;
+    grid-gap: 2%;
+}
+
+.label-div {
+    text-align: right;
+}
+
+.form-input select,
+.form-input input {
+    width: 50%;
+}
+
+.form-errors {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-submit {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}

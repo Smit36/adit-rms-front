@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: flex-start;
     background-color: #008000;
-    color: white;
     letter-spacing: 1px;
     padding: 0 25px;
     height: 80px;
@@ -17,8 +16,14 @@
     transition: 0.2s;
 }
 
+.header-link {
+    color: white;
+    text-decoration: none;
+}
+
 .header-link.active {
     background-color: #138d13;
+    text-decoration: underline;
 }
 
 .header-link:hover {

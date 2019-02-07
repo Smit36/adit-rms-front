@@ -1,0 +1,30 @@
+.home-container {
+    width: 95%;
+    margin: 70px auto 0 auto;
+
+}
+
+.home-links {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.home-link {
+    text-transform: uppercase;
+    font-size: 17px;
+    letter-spacing: 0.6px;
+    padding: 5px 5px;
+}
+
+.home-link a {
+    color: #008000;
+    text-decoration: none;
+}
+
+.home-link a:hover {
+    text-decoration: underline;
+}
