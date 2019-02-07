@@ -2,11 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #008000;
+    background-color: #2196f3;
     letter-spacing: 1px;
     padding: 0 25px;
     height: 80px;
 }
+
 
 .header-link {
     width: 100px;
@@ -22,11 +23,11 @@
 }
 
 .header-link.active {
-    background-color: #138d13;
+    background-color: #42a6f5;
     text-decoration: underline;
 }
 
 .header-link:hover {
     cursor: pointer;
-    background-color: #138d13;
+    background-color: #42a6f5;
 }
