@@ -5,7 +5,7 @@ class Edit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      branch: undefined,
+      department: undefined,
       semester: undefined,
       subject: undefined,
       email: undefined,
@@ -13,6 +13,8 @@ class Edit extends React.Component {
       error: undefined
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSemesterChange = this.handleSemesterChange.bind(this);
+    this.handleDepartmentChange = this.handleDepartmentChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -33,6 +35,16 @@ class Edit extends React.Component {
     }
   }
 
+  handleDepartmentChange(e) {
+    const department = e.target.value !== 'select' ? e.target.value : undefined;
+    this.setState(() => ({ department, semester: undefined }));
+  }
+
+  handleSemesterChange(e) {
+    const semester = e.target.value !== 'select' ? e.target.value : undefined;
+    this.setState(() => ({ semester }));
+  }
+
   render() {
     return (
       <div className='edit-container'>
@@ -41,15 +53,14 @@ class Edit extends React.Component {
 
             <div className='form-control'>
               <div className='label-div'>
-                <label htmlFor="branch">Select branch: </label>
+                <label htmlFor="branch">Department: </label>
               </div>
               <div className='form-input'>
-                <select name="branch">
+                <select name="branch" onChange={this.handleDepartmentChange}>
                   <option value="select"></option>
-                  <option value="automobile">Automobile Eng.</option>
-                  <option value="computer">Computer Eng.</option>
-                  <option value="mechanical">Mechanical Eng.</option>
-                  <option value="information">Information and Technology</option>
+                  {this.props.departments && Object.keys(this.props.departments).map((key, i) =>
+                    <option value={key} key={i}>{this.props.departments[key].fullName}</option>
+                  )}
                 </select>
               </div>
             </div>
@@ -59,12 +70,14 @@ class Edit extends React.Component {
                 <label htmlFor="semester">Semester:</label>
               </div>
               <div className='form-input'>
-                <select name="semester">
+                <select name="semester" onChange={this.handleSemesterChange}>
                   <option value="select"></option>
-                  <option value="2">2</option>
-                  <option value="4">4</option>
-                  <option value="6">6</option>
-                  <option value="8">8</option>
+                  {this.props.departments &&
+                    Object.keys(this.props.departments).map((key, i) =>
+                      this.state.department === key && Object.keys(this.props.departments[key].semesters).map((sem, j) =>
+                        <option key={j} value={sem}>{sem}</option>
+                      ))
+                  }
                 </select>
               </div>
             </div>
@@ -74,22 +87,13 @@ class Edit extends React.Component {
                 <label htmlFor="Subject">Subject:</label>
               </div>
               <div className='form-input'>
-                <select name="subject">
+                <select name="subject" disabled={!(this.props.departments && this.state.department && this.state.semester)}>
                   <option value="select"></option>
-                  <option value="computer-graphics">Computer Graphics</option>
-                  <option value="net">.NET</option>
-                  <option value="advanced-java">Advanced JAVA</option>
-                  <option value="web-technology">Web Technology</option>
+                  {this.props.departments && this.state.department && this.state.semester &&
+                    this.props.departments[this.state.department].semesters[this.state.semester].map((sub, j) =>
+                      <option key={j} value={sub.code}>{sub.fullName}</option>
+                    )}
                 </select>
-              </div>
-            </div>
-
-            <div className='form-control'>
-              <div className='label-div'>
-                <label htmlFor="Subject">Email:</label>
-              </div>
-              <div className='form-input'>
-                <input type="email" name='email' />
               </div>
             </div>
 

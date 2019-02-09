@@ -9,7 +9,22 @@ import About from './components/About/About';
 import Edit from './components/Edit/Edit';
 import View from './components/View/View';
 
+import getDepartments from './controllers/getDepartments';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      departments: undefined
+    }
+  }
+
+  componentWillMount() {
+    getDepartments().then(res => {
+      this.setState(() => ({ departments: res.data.departments }));
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,7 +63,7 @@ class App extends Component {
               render={() =>
                 <Fragment>
                   <Header />
-                  <Edit />
+                  <Edit departments={this.state.departments} />
                 </Fragment>
               }
             />
