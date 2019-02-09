@@ -1,33 +1,40 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    background-color: #2196f3;
+    justify-content: flex-end;
+    background-color: #2e3351;
     letter-spacing: 1px;
     padding: 0 25px;
     height: 80px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.9);
 }
 
 
 .header-link {
     width: 100px;
-    height: 100%;
+    height: 99%;
     text-align: center;
     line-height: 480%;
-    transition: 0.2s;
+    transition: 0.5s;   
+    font-size: 100%; 
+    text-decoration: none;
+    border-bottom: 1px solid #2e3351;
+    color:rgba(255, 255, 255, 0.644);
 }
 
-.header-link {
-    color: white;
-    text-decoration: none;
-}
+
 
 .header-link.active {
-    background-color: #42a6f5;
-    text-decoration: underline;
+    background-color: #454b6d;
+    border-bottom:1px solid white;
+    color: white;
 }
 
 .header-link:hover {
     cursor: pointer;
-    background-color: #42a6f5;
+    border-bottom:1px solid white;
+    background-color: #454b6d;
+    color: white;
+    
+   
 }
