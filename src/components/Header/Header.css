@@ -9,32 +9,27 @@
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.9);
 }
 
-
 .header-link {
     width: 100px;
     height: 99%;
     text-align: center;
     line-height: 480%;
-    transition: 0.5s;   
-    font-size: 100%; 
+    transition: 0.35s;
+    font-size: 100%;
     text-decoration: none;
     border-bottom: 1px solid #2e3351;
-    color:rgba(255, 255, 255, 0.644);
+    color: rgba(255, 255, 255, 0.644);
 }
-
-
 
 .header-link.active {
     background-color: #454b6d;
-    border-bottom:1px solid white;
+    border-bottom: 1px solid white;
     color: white;
 }
 
 .header-link:hover {
     cursor: pointer;
-    border-bottom:1px solid white;
+    border-bottom: 1px solid white;
     background-color: #454b6d;
     color: white;
-    
-   
 }
