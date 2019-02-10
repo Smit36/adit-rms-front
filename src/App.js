@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -8,6 +8,8 @@ import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import Edit from './components/Edit/Edit';
 import View from './components/View/View';
+import EditSpreadSheet from './components/EditSpreadSheet/EditSpreadSheet';
+import ErrorRoute from './components/ErrorRoute/ErrorRoute';
 
 import getDepartments from './controllers/getDepartments';
 
@@ -15,8 +17,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      departments: undefined
+      departments: undefined,
+      spreadSheetUrl: undefined
     }
+    this.updateSpreadSheetUrl = this.updateSpreadSheetUrl.bind(this);
+  }
+
+  updateSpreadSheetUrl(spreadSheetUrl) {
+    this.setState(() => ({ spreadSheetUrl }));
   }
 
   componentWillMount() {
@@ -48,6 +56,7 @@ class App extends Component {
                   <Contact />
                 </Fragment>
               }
+              exact={true}
             />
             <Route
               path='/about'
@@ -57,15 +66,20 @@ class App extends Component {
                   <About />
                 </Fragment>
               }
+              exact={true}
             />
             <Route
               path='/edit'
               render={() =>
                 <Fragment>
                   <Header />
-                  <Edit departments={this.state.departments} />
+                  <Edit
+                    departments={this.state.departments}
+                    updateSpreadSheetUrl={this.updateSpreadSheetUrl}
+                  />
                 </Fragment>
               }
+              exact={true}
             />
             <Route
               path='/view'
@@ -74,6 +88,32 @@ class App extends Component {
                   <Header />
                   <View />
                 </Fragment>
+              }
+              exact={true}
+            />
+            <Route
+              path='/edit/sheet'
+              render={
+                () => {
+                  if (this.state.spreadSheetUrl) {
+                    return (<Fragment>
+                      <Header />
+                      <EditSpreadSheet url={this.state.spreadSheetUrl} />
+                    </Fragment>)
+                  }
+                  return <Redirect to='/edit' />
+                }
+              }
+              exact={true}
+            />
+            <Route
+              render={
+                () => (
+                  <Fragment>
+                    <Header />
+                    <ErrorRoute />
+                  </Fragment>
+                )
               }
             />
           </Switch>

@@ -1,0 +1,8 @@
+.edit-spreadsheet-container {
+
+}
+
+.edit-spreadsheet-container iframe {
+    width: 100%;
+    height: 110vh;
+}
