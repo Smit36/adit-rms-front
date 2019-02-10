@@ -5,8 +5,8 @@
 
 .home-links {
     display: flex;
-    flex-direction: column;    
-    justify-content:center;
+    flex-direction: column;
+    justify-content: center;
     height: 70vh;
     width: 70%;
     margin: 0 auto;
