@@ -29,7 +29,7 @@
 .form-input input {
     width: 50%;
     outline: #454b6d;
-    transition: 2s;
+    transition: 2s;  
 }
 
 .form-errors {
