@@ -19,6 +19,8 @@ class Header extends React.Component {
   render() {
     return (
       <div className='header'>
+        <div className='header-name'>Record Management System</div>
+        
         <Link className={`header-link ${this.state.active === 'Home' ? 'active' : ''}`} to='/' onClick={this.handleClick}>Home</Link>
         <Link className={`header-link ${this.state.active === 'About us' ? 'active' : ''}`} to='/about' onClick={this.handleClick}>About us</Link>
         <Link className={`header-link ${this.state.active === 'Contact us' ? 'active' : ''}`} to='/contact' onClick={this.handleClick}>Contact us</Link>

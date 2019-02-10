@@ -6,10 +6,9 @@
 .home-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     height: 70vh;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     position: relative;
     background-image: url("n2.jpg");

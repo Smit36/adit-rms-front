@@ -9,6 +9,14 @@
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.9);
 }
 
+.header-name {
+    color: white;
+    font-size: 150%;
+    text-transform: uppercase;
+    padding-right: 32%;
+    width: 35%;
+}
+
 .header-link {
     width: 100px;
     height: 99%;
@@ -17,6 +25,7 @@
     transition: 0.35s;
     font-size: 100%;
     text-decoration: none;
+    text-transform: uppercase;
     border-bottom: 1px solid #2e3351;
     color: rgba(255, 255, 255, 0.644);
 }
