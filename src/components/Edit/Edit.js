@@ -143,6 +143,7 @@ class Edit extends React.Component {
                 <div className='form-submit'>
                   <button
                     type='submit'
+                    className={(this.props.departments && this.state.department && this.state.semester && this.state.subject && this.state.password) ? '' : 'disabled'}
                     disabled={!(this.props.departments && this.state.department && this.state.semester && this.state.subject && this.state.password)}
                   >Submit
               </button>
