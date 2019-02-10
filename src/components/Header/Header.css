@@ -11,15 +11,22 @@
 
 .header-name {
     color: white;
-    font-size: 150%;
+    font-size: 130%;
     text-transform: uppercase;
-    padding-right: 32%;
-    width: 35%;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.header-name div {
+    display: inline-block;
 }
 
 .header-link {
     width: 100px;
     height: 99%;
+    padding: 0 7px;
     text-align: center;
     line-height: 480%;
     transition: 0.35s;

@@ -14,7 +14,19 @@
     background-image: url("n2.jpg");
     background-size: cover;
     background-position: center;
-    box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.7)
+    box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.7);
+    border-radius: 35px;
+}
+
+.home-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(24, 24, 31, 0.7);
+    border-radius: 35px;
+    z-index: 1;
 }
 
 .home-link {
@@ -37,14 +49,4 @@
 .home-link a:hover {
     color: white;
     border-bottom: 1px solid white;
-}
-
-.home-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(24, 24, 31, 0.7);
-    z-index: 1;
 }

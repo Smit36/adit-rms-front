@@ -132,7 +132,7 @@ class Edit extends React.Component {
                     <label htmlFor="Subject">Password:</label>
                   </div>
                   <div className='form-input'>
-                    <input type="password" name='password' onChange={this.handlePasswordChange} />
+                    <input type="password" name='password' onChange={this.handlePasswordChange} required/>
                   </div>
                 </div>
 
@@ -146,7 +146,7 @@ class Edit extends React.Component {
                     className={(this.props.departments && this.state.department && this.state.semester && this.state.subject && this.state.password) ? '' : 'disabled'}
                     disabled={!(this.props.departments && this.state.department && this.state.semester && this.state.subject && this.state.password)}
                   >Submit
-              </button>
+                </button>
                 </div>
 
               </form>
