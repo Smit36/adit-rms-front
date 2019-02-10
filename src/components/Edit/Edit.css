@@ -32,10 +32,7 @@
     outline: #454b6d;
     transition: 2s;    
 }
-.form-input select:
-{
-    background-color: #454b6d;
-}
+
 .form-errors {
     margin-top: 20px;
     text-align: center;
