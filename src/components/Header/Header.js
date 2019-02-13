@@ -16,6 +16,15 @@ class Header extends React.Component {
     this.setState(() => ({ active }));
   }
 
+  componentWillMount() {
+    const path = window.location.pathname;
+    if (path === '/about') {
+      this.setState(() => ({ active: 'About' }));
+    } else if (path === '/contact') {
+      this.setState(() => ({ active: 'Contact' }));
+    }
+  }
+
   render() {
     return (
       <div className='header'>
@@ -23,8 +32,8 @@ class Header extends React.Component {
           <div>Record Management System</div>
         </div>
         <Link className={`header-link ${this.state.active === 'Home' ? 'active' : ''}`} to='/' onClick={this.handleClick}>Home</Link>
-        <Link className={`header-link ${this.state.active === 'About us' ? 'active' : ''}`} to='/about' onClick={this.handleClick}>About</Link>
-        <Link className={`header-link ${this.state.active === 'Contact us' ? 'active' : ''}`} to='/contact' onClick={this.handleClick}>Contact</Link>
+        <Link className={`header-link ${this.state.active === 'About' ? 'active' : ''}`} to='/about' onClick={this.handleClick}>About</Link>
+        <Link className={`header-link ${this.state.active === 'Contact' ? 'active' : ''}`} to='/contact' onClick={this.handleClick}>Contact</Link>
       </div>
     );
   }
