@@ -50,9 +50,13 @@ class Edit extends React.Component {
       password: e.target.elements.password.value,
     }
     login(loginData).then(res => {
-      localStorage.setItem('jwtToken', res.jwtToken);
-      this.props.updateSpreadSheetUrl(res.url);
-      this.setState(() => ({ redirect: true }));
+      if (res.error) {
+        this.setState(() => ({ error: res.error, errorMessage: res.errorMessage }));
+      } else {
+        localStorage.setItem('jwtToken', res.jwtToken);
+        this.props.updateSpreadSheetUrl(res.url);
+        this.setState(() => ({ redirect: true }));
+      }
     });
   }
 
@@ -136,7 +140,7 @@ class Edit extends React.Component {
 
                 {
                   this.state.error &&
-                  <div className='form-errors'>{this.state.error}</div>
+                  <div className='form-errors'>{this.state.errorMessage}</div>
                 }
                 <div className='form-submit'>
                   <button
