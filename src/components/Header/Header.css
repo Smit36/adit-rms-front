@@ -2,16 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #2e3351;
+    background-color: white;
     letter-spacing: 1px;
     padding: 0 25px;
     height: 80px;
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 5px 20px 0px rgba(0, 0, 0, 0.19);
 }
 
 .header-name {
-    color: white;
-    font-size: 130%;
+    color: #e96443;
+    font-size: 160%;
     text-transform: uppercase;
     height: 100%;
     width: 80%;
@@ -24,28 +24,26 @@
 }
 
 .header-link {
-    width: 100px;
-    height: 99%;
-    padding: 0 7px;
-    text-align: center;
-    line-height: 480%;
-    transition: 0.35s;
+    width: 15%;
+    height: 50%;
+    margin-right: 2%;
+    line-height: 250%;
+    transition: 0.45s;
     font-size: 100%;
+    text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    border-bottom: 1px solid #2e3351;
-    color: rgba(255, 255, 255, 0.644);
+    border: 0.8px solid black;
+    color: black
 }
 
 .header-link.active {
-    background-color: #454b6d;
-    border-bottom: 1px solid white;
+    background-color: #e96443;
+    border: 0.8px solid #e96443;
     color: white;
 }
 
 .header-link:hover {
     cursor: pointer;
-    border-bottom: 1px solid white;
-    background-color: #454b6d;
-    color: white;
+    border: 0.8px solid #e96443;
 }
