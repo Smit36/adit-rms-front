@@ -46,9 +46,7 @@ class Edit extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const loginData = {
-      department: e.target.elements.branch.value,
-      semester: e.target.elements.semester.value,
-      subjectCode: e.target.elements.subject.value,
+      subjectCode: e.target.elements.subject.value + '_' + e.target.elements.branch.value,
       password: e.target.elements.password.value,
     }
     login(loginData).then(res => {
@@ -132,7 +130,7 @@ class Edit extends React.Component {
                     <label htmlFor="Subject">Password:</label>
                   </div>
                   <div className='form-input'>
-                    <input type="password" name='password' onChange={this.handlePasswordChange} required/>
+                    <input type="password" name='password' onChange={this.handlePasswordChange} required />
                   </div>
                 </div>
 

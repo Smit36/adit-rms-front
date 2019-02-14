@@ -35,7 +35,7 @@ class EditSpreadSheet extends React.Component {
     }
 
     componentWillMount() {
-        this.interval = setInterval(this.callback, 1000 * 2);
+        this.interval = setInterval(this.callback, 1000 * 60);
     }
 
     componentWillUnmount() {
