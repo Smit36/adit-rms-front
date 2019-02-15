@@ -1,4 +1,5 @@
 .edit-spreadsheet-container iframe {
+    margin-top: 20px;
     width: 100%;
     display: block;
     border-top: 1px solid gray;
