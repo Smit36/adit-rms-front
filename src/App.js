@@ -98,7 +98,7 @@ class App extends Component {
                   if (this.state.spreadSheetUrl) {
                     return (<Fragment>
                       <Header />
-                      <EditSpreadSheet url={this.state.spreadSheetUrl} />
+                      <EditSpreadSheet url={this.state.spreadSheetUrl} updateSpreadSheetUrl={this.updateSpreadSheetUrl} />
                     </Fragment>)
                   }
                   return <Redirect to='/edit' />

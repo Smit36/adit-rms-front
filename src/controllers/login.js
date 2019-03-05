@@ -8,7 +8,6 @@ export default (loginData) => {
     }).then(response => {
         return response.json().then(res => res)
     }).then(res => {
-        console.log(res);
         return res;
     }).catch(err => {
         console.log(err);

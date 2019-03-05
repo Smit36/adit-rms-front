@@ -1,8 +1,14 @@
-.edit-spreadsheet-container {
-
-}
-
 .edit-spreadsheet-container iframe {
     width: 100%;
+    display: block;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     height: 110vh;
+    margin: 15px 0;
+}
+
+.network-speed {
+    margin-top: 15px;
+    text-align: center;
+    color: gray;
 }
