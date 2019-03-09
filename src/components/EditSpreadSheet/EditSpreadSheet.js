@@ -8,29 +8,27 @@ class EditSpreadSheet extends React.Component {
         super(props);
         this.state = {
             redirect: false,
-            speed: undefined
+            speed: undefined,
+            jwtToken: undefined
         }
         this.callbackInterval = undefined;
         this.checkInternetInterval = undefined;
-        this.callback = this.callback.bind(this);
-        this.checkInternet = this.checkInternet.bind(this);
     }
 
-    callback() {
+    callback = () => {
         fetch('http://localhost:5000/session/callback', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ jwtToken: localStorage.getItem('jwtToken') })
+            body: JSON.stringify({ jwtToken: this.state.jwtToken })
         }).then(res => {
             res.json().then(data => {
                 if (!data.error) {
-                    localStorage.setItem('jwtToken', data.jwtToken);
+                    this.setState(() => ({ jwtToken: data.jwtToken }));
                 } else {
-                    localStorage.removeItem('jwtToken');
                     clearInterval(this.interval);
-                    this.setState(() => ({ redirect: true }));
+                    this.setState(() => ({ redirect: true, jwtToken: undefined }));
                 }
             });
         }).catch(err => {
@@ -38,8 +36,7 @@ class EditSpreadSheet extends React.Component {
         });
     }
 
-    async checkInternet() {
-        console.log('called');
+    checkInternet = async () => {
         let baseUrl = 'http://eu.httpbin.org/stream-bytes/50000000';
         let fileSize = 500000;
         let speed = await new NetworkSpeed().checkDownloadSpeed(baseUrl, fileSize);
@@ -51,6 +48,7 @@ class EditSpreadSheet extends React.Component {
     }
 
     componentWillMount() {
+        this.setState(() => ({ jwtToken: this.props.jwtToken }));
         if (!this.props.url) {
             this.setState(() => ({ redirect: true }));
         }
@@ -59,8 +57,7 @@ class EditSpreadSheet extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.updateSpreadSheetUrl('');
-        localStorage.removeItem('jwtToken');
+        this.props.updateSheetData(undefined, undefined);
         clearInterval(this.interval);
     }
 

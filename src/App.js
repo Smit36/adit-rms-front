@@ -18,13 +18,13 @@ class App extends Component {
     super(props);
     this.state = {
       departments: undefined,
-      spreadSheetUrl: undefined
+      spreadSheetUrl: undefined,
+      jwtToken: undefined
     }
-    this.updateSpreadSheetUrl = this.updateSpreadSheetUrl.bind(this);
   }
 
-  updateSpreadSheetUrl(spreadSheetUrl) {
-    this.setState(() => ({ spreadSheetUrl }));
+  updateSheetData = (spreadSheetUrl, jwtToken) => {
+    this.setState(() => ({ spreadSheetUrl, jwtToken }));
   }
 
   componentWillMount() {
@@ -75,7 +75,7 @@ class App extends Component {
                   <Header />
                   <Edit
                     departments={this.state.departments}
-                    updateSpreadSheetUrl={this.updateSpreadSheetUrl}
+                    updateSheetData={this.updateSheetData}
                   />
                 </Fragment>
               }
@@ -98,7 +98,11 @@ class App extends Component {
                   if (this.state.spreadSheetUrl) {
                     return (<Fragment>
                       <Header />
-                      <EditSpreadSheet url={this.state.spreadSheetUrl} updateSpreadSheetUrl={this.updateSpreadSheetUrl} />
+                      <EditSpreadSheet
+                        url={this.state.spreadSheetUrl}
+                        updateSheetData={this.updateSheetData}
+                        jwtToken={this.state.jwtToken}
+                      />
                     </Fragment>)
                   }
                   return <Redirect to='/edit' />

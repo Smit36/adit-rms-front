@@ -16,34 +16,29 @@ class Edit extends React.Component {
       error: undefined,
       redirect: false
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSemesterChange = this.handleSemesterChange.bind(this);
-    this.handleDepartmentChange = this.handleDepartmentChange.bind(this);
-    this.handleSubjectChange = this.handleSubjectChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
-  handleDepartmentChange(e) {
+  handleDepartmentChange = (e) => {
     const department = e.target.value !== 'select' ? e.target.value : undefined;
     this.setState(() => ({ department, semester: undefined }));
   }
 
-  handleSemesterChange(e) {
+  handleSemesterChange = (e) => {
     const semester = e.target.value !== 'select' ? e.target.value : undefined;
     this.setState(() => ({ semester }));
   }
 
-  handleSubjectChange(e) {
+  handleSubjectChange = (e) => {
     const subject = e.target.value !== 'select' ? e.target.value : undefined;
     this.setState(() => ({ subject }));
   }
 
-  handlePasswordChange(e) {
+  handlePasswordChange = (e) => {
     const password = e.target.value;
     this.setState(() => ({ password }));
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const loginData = {
       subjectCode: e.target.elements.subject.value + '_' + e.target.elements.branch.value,
@@ -53,8 +48,7 @@ class Edit extends React.Component {
       if (res.error) {
         this.setState(() => ({ error: res.error, errorMessage: res.errorMessage }));
       } else {
-        localStorage.setItem('jwtToken', res.jwtToken);
-        this.props.updateSpreadSheetUrl(res.url);
+        this.props.updateSheetData(res.url, res.jwtToken);        
         this.setState(() => ({ redirect: true }));
       }
     });
