@@ -3,5 +3,5 @@ body {
     padding: 0;
     font-family: 'Alegreya SC', sans-serif;
     font-weight: 600;
-    background-color: rgba(0,0,0,0.05);
+    background-image:linear-gradient(to left,rgb(255, 255, 255) 65%,#4e7e64 35%);
 }

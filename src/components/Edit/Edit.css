@@ -1,27 +1,28 @@
 .edit-container {
-    width: 95%;
     height: 500px;
-    margin: 0 auto;
+    width:90%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top:2%;
 }
 
 .form-container {
     padding-top: 10px;
-    width: 40%;
-    height: auto;
-    border-radius: 10px;
-    background: linear-gradient(to left, white 50%, rgba(233, 100, 67, 0.9) 50%), url('n34.jpg');
+    height: 70vh;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color:white;
     background-size: contain;
-    box-shadow: 5px 9px 19px 0px rgba(24, 24, 31, 0.19);
+    box-shadow:1px 3px 9px 0px rgba(24, 24, 31, 0.19);
 }
 
 .form-control {
     display: grid;
     font-size: 25px;
     font-family: sans-serif;
-    color: white;
+    color:#609779;
     grid-template-columns: 50% 45%;
     margin-top: 45px;
     grid-gap: 2%;
@@ -34,11 +35,11 @@
 
 .form-input select,
 .form-input input {
-    width: 100%;
+    width: 90%;
     height: 30px;
     outline: none;
     /* padding-top: 3%; */
-    border: 0.5px solid #e96443;
+    border: 0.5px solid #609779;
     border-radius: 25px;
     font-size: 15px;
     text-align: center;
@@ -63,8 +64,8 @@
 
 .form-submit .disabled {
     background-color: white;
-    color: #e96443;
-    border: 0.8px solid #e96443;
+    color: #609779;
+    border: 0.8px solid #609779;
     border-radius: 25px;
     box-shadow: 0px 5px 20px 0px #18181f33;
     font-size: 18px;
@@ -80,9 +81,9 @@
 }
 
 .form-submit button {
-    background-color: #e96443;
+    background-color: #609779;
     color: white;
-    border: 0.8px solid #e96443;
+    border: 0.8px solid #609779;
     border-radius: 25px;
     box-shadow: 0px 5px 20px 0px #18181f33;
     font-size: 18px;
